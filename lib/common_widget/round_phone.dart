@@ -40,6 +40,7 @@ class RoundPhone extends StatelessWidget {
             keyboardType: TextInputType.phone,
             cursorColor: Colors.blue,
             decoration: InputDecoration(
+                border: InputBorder.none,
                 focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                     borderSide:

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mc_dragon/view/auto_screen/otp_screen.dart';
 
 import '../../common_widget/round_button.dart';
 import '../../common_widget/round_phone.dart';
@@ -41,7 +42,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               RoundPhone(),
               const SizedBox(height: 30),
-              RoundButton(title: "Sign Up", onPress: () {})
+              RoundButton(
+                  title: "Sign Up",
+                  onPress: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const OtpScreen()));
+                  })
             ],
           ),
         ),

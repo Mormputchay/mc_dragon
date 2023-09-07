@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mc_dragon/common_widget/round_button.dart';
 import 'package:mc_dragon/common_widget/round_phone.dart';
+import 'package:mc_dragon/view/auto_screen/otp_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -40,7 +41,14 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               RoundPhone(),
               const SizedBox(height: 30),
-              RoundButton(title: "Login", onPress: () {})
+              RoundButton(
+                  title: "Login",
+                  onPress: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const OtpScreen()));
+                  })
             ],
           ),
         ),
