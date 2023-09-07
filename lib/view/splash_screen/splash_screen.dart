@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mc_dragon/view/on_boarding_view/on_boarding_view.dart';
+import 'package:mc_dragon/view/welcome_screen/welcome_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -19,12 +19,13 @@ class _SplashScreenState extends State<SplashScreen> {
   void goWelcomePage() async {
     await Future.delayed(const Duration(seconds: 1));
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => OnBoardingView()));
+        context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         fit: StackFit.expand,
         children: [
