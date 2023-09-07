@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mc_dragon/view/main_tab/main_tab_view.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class OtpScreen extends StatefulWidget {
@@ -87,10 +88,10 @@ class _OtpScreenState extends State<OtpScreen> {
                       appContext: context,
                     ),
                   ),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         "Didn't receive code?",
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -98,13 +99,21 @@ class _OtpScreenState extends State<OtpScreen> {
                             color: Colors.black26,
                             fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(width: 10),
-                      Text(
-                        "Resend Code ",
-                        textAlign: TextAlign.center,
-                        style:
-                            TextStyle(fontSize: 16, color: Colors.blueAccent),
-                      ),
+                      const SizedBox(width: 10),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const MainTabView()));
+                        },
+                        child: const Text(
+                          "Resend Code ",
+                          textAlign: TextAlign.center,
+                          style:
+                              TextStyle(fontSize: 16, color: Colors.blueAccent),
+                        ),
+                      )
                     ],
                   )
                 ],

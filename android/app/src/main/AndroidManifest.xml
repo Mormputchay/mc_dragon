@@ -1,4 +1,6 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mc_dragon">
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
         android:label="mc_dragon"
         android:name="${applicationName}"
