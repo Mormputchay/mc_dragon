@@ -41,6 +41,10 @@ dependencies:
   pin_code_fields: ^8.0.1
   firebase_core: ^2.15.1
   cloud_firestore: ^4.9.1
+  video_player: ^2.7.1
+  youtube_player_flutter: ^8.1.2
+  chewie: ^1.7.1
+  carousel_slider: ^4.2.1
 
 
 

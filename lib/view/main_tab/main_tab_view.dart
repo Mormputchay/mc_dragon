@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mc_dragon/view/Shop_Screen/shop_screen.dart';
+import 'package:mc_dragon/view/home_screen/home_view.dart';
+import 'package:mc_dragon/view/more_screen/more_screen.dart';
 
 class MainTabView extends StatefulWidget {
   const MainTabView({super.key});
@@ -9,39 +12,41 @@ class MainTabView extends StatefulWidget {
 class _MainTabViewState extends State<MainTabView>
     with SingleTickerProviderStateMixin {
   TabController? controller;
-  int selectTab = 0;
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    controller = TabController(length: 3, vsync: this);
-    controller?.addListener(() {
-      selectTab = controller?.index ?? 0;
-      setState(() {});
+  final List<Widget> _widgetOptions = <Widget>[
+    const HomeView(),
+    const ShopScreen(),
+    const Scaffold(
+      backgroundColor: Colors.green,
+    ),
+    const Scaffold(
+      backgroundColor: Colors.pinkAccent,
+    ),
+    const MoreScreen(),
+  ];
+  void _onItemTap(int index) {
+    setState(() {
+      selectTab = index;
     });
   }
 
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    controller?.dispose();
-  }
+  int selectTab = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: TabBarView(
-        controller: controller,
-        children: [
-          Container(),
-          Container(),
-          Container(),
-        ],
-      ),
+      body: _widgetOptions.elementAt(selectTab),
       bottomNavigationBar: BottomNavigationBar(
         elevation: 1,
         backgroundColor: Colors.white,
+        selectedItemColor: Colors.blueAccent,
+        showUnselectedLabels: true,
+        showSelectedLabels: true,
+        selectedFontSize: 14,
+        unselectedFontSize: 14,
+        selectedLabelStyle: const TextStyle(fontStyle: FontStyle.italic),
+        unselectedItemColor: Colors.grey.withOpacity(0.9),
+        currentIndex: selectTab,
+        onTap: _onItemTap,
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
@@ -49,6 +54,7 @@ class _MainTabViewState extends State<MainTabView>
                 "assets/image/house.png",
                 width: 30,
                 height: 25,
+                color: selectTab == 0 ? Colors.blueAccent : Colors.grey,
               ),
               label: "Home"),
           BottomNavigationBarItem(
@@ -56,6 +62,7 @@ class _MainTabViewState extends State<MainTabView>
                 "assets/image/shopping-cart.png",
                 width: 30,
                 height: 25,
+                color: selectTab == 1 ? Colors.blueAccent : Colors.grey,
               ),
               label: "Shop"),
           BottomNavigationBarItem(
@@ -70,7 +77,7 @@ class _MainTabViewState extends State<MainTabView>
                   "assets/image/plus.png",
                   width: 20,
                   height: 20,
-                  color: Colors.white,
+                  color: selectTab == 2 ? Colors.white : Colors.black,
                 ),
               ),
               label: ""),
@@ -79,6 +86,7 @@ class _MainTabViewState extends State<MainTabView>
                 "assets/image/user.png",
                 width: 25,
                 height: 30,
+                color: selectTab == 3 ? Colors.blueAccent : Colors.grey,
               ),
               label: "Profile"),
           BottomNavigationBarItem(
@@ -86,6 +94,7 @@ class _MainTabViewState extends State<MainTabView>
                 "assets/image/app.png",
                 width: 30,
                 height: 25,
+                color: selectTab == 4 ? Colors.blueAccent : Colors.grey,
               ),
               label: "More"),
         ],
