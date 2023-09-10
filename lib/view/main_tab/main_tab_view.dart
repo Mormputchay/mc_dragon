@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mc_dragon/view/Shop_Screen/shop_screen.dart';
+import 'package:mc_dragon/view/camera_and_video/camera_and_video_screen.dart';
 import 'package:mc_dragon/view/home_screen/home_view.dart';
 import 'package:mc_dragon/view/more_screen/more_screen.dart';
+import 'package:mc_dragon/view/profile_screen/profile-screen.dart';
 
 class MainTabView extends StatefulWidget {
   const MainTabView({super.key});
@@ -15,12 +17,8 @@ class _MainTabViewState extends State<MainTabView>
   final List<Widget> _widgetOptions = <Widget>[
     const HomeView(),
     const ShopScreen(),
-    const Scaffold(
-      backgroundColor: Colors.green,
-    ),
-    const Scaffold(
-      backgroundColor: Colors.pinkAccent,
-    ),
+    const CameraAndVideoScreen(),
+    const ProfileScreen(),
     const MoreScreen(),
   ];
   void _onItemTap(int index) {

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class BuilderAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String title;
+  final String? title;
   final Widget? leading;
   final List<Widget>? actions;
   final double? elevation;
   const BuilderAppBar({
     super.key,
-    required this.title,
+    this.title,
     this.leading,
     this.actions,
     this.elevation,
@@ -21,7 +21,7 @@ class BuilderAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       leading: leading,
       title: Text(
-        title,
+        title!,
         style: const TextStyle(color: Colors.blue, fontSize: 22),
       ),
       actions: actions,
