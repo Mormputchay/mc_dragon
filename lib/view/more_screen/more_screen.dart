@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mc_dragon/common_widget/BuilderAppBar.dart';
+import 'package:mc_dragon/common_widget/MenuButton.dart';
 
 class MoreScreen extends StatefulWidget {
   const MoreScreen({super.key});
@@ -10,25 +11,113 @@ class MoreScreen extends StatefulWidget {
 class _MoreScreenState extends State<MoreScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: BuilderAppBar(
-        title: "Mores",
-        elevation: 1,
-        actions: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            child: Icon(Icons.notifications_active_outlined,
-                size: 30, color: Colors.blueAccent),
-          )
-        ],
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [],
-          ),
+    return Scaffold(
+        backgroundColor: Colors.white,
+        appBar: const BuilderAppBar(
+          title: "Mores",
+          elevation: 1,
+          actions: [
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: Icon(Icons.notifications_active_outlined,
+                  size: 30, color: Colors.blueAccent),
+            )
+          ],
         ),
-      ),
-    );
+        body: SafeArea(
+          child: Container(
+            color: Colors.white,
+            child: Column(
+              children: [
+                Flexible(
+                  flex: 3,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 20),
+                    child: Container(
+                      color: Colors.black12,
+                      child: GridView.count(
+                        crossAxisCount: 3,
+                        mainAxisSpacing: 1.0,
+                        crossAxisSpacing: 1.0,
+                        children: [
+                          MenuButton(
+                            title: "Product",
+                            icons: "assets/image/product.png",
+                            onPress: () {},
+                          ),
+                          MenuButton(
+                            title: "Wallet",
+                            icons: "assets/image/wallet.png",
+                            onPress: () {},
+                          ),
+                          MenuButton(
+                            title: "Wishlist",
+                            icons: "assets/image/wishlist.png",
+                            onPress: () {},
+                          ),
+                          MenuButton(
+                            title: "Plans",
+                            icons: "assets/image/plan.png",
+                            onPress: () {},
+                          ),
+                          MenuButton(
+                            title: "Order History",
+                            icons: "assets/image/History.png",
+                            onPress: () {},
+                          ),
+                          MenuButton(
+                            title: "Product",
+                            icons: "assets/image/settings.png",
+                            onPress: () {},
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Text(
+                  "Error: An unexpected type error occur!",
+                  style: TextStyle(fontSize: 17, color: Colors.black),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Flexible(
+                  flex: 4,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.asset("assets/image/coffee.jpg")),
+                        MaterialButton(
+                          minWidth: 180,
+                          height: 45,
+                          color: Colors.white60.withOpacity(0.8),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          onPressed: () {},
+                          child: const Text(
+                            "Shop now",
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.blueAccent,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ));
   }
 }

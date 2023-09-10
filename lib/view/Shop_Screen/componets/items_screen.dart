@@ -124,7 +124,7 @@ class _ItemScreenState extends State<ItemScreen> {
                       Image.asset(
                         pObj["image"].toString(),
                         width: 130,
-                        height: 65,
+                        height: 60,
                         fit: BoxFit.contain,
                       ),
                       const SizedBox(
