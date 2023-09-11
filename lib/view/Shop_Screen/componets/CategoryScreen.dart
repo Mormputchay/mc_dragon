@@ -10,7 +10,6 @@ class CategoryScreen extends StatefulWidget {
 
 class _CategoryScreenState extends State<CategoryScreen> {
   // ignore: non_constant_identifier_names
-
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(

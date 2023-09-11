@@ -99,23 +99,35 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               const SizedBox(
                 height: 10,
               ),
-              RoundButton(
-                  title: "Login",
-                  onPress: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LoginScreen()));
-                  }),
-              RoundButton(
-                  title: "Sign up",
-                  onPress: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SignUpScreen()));
-                  }),
-              RoundButton(title: "test", onPress: () {})
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 35, vertical: 5),
+                child: RoundButton(
+                    title: "Login",
+                    onPress: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginScreen()));
+                    }),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 35, vertical: 5),
+                child: RoundButton(
+                    title: "Sign up",
+                    onPress: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignUpScreen()));
+                    }),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 35, vertical: 5),
+                child: RoundButton(title: "test", onPress: () {}),
+              )
             ],
           ),
         ),

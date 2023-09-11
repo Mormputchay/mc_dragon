@@ -41,14 +41,18 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               RoundPhone(),
               const SizedBox(height: 30),
-              RoundButton(
-                  title: "Login",
-                  onPress: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const OtpScreen()));
-                  })
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 35, vertical: 5),
+                child: RoundButton(
+                    title: "Login",
+                    onPress: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const OtpScreen()));
+                    }),
+              )
             ],
           ),
         ),

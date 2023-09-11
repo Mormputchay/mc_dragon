@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mc_dragon/common_widget/BuilderAppBar.dart';
 import 'package:mc_dragon/common_widget/MenuButton.dart';
+import 'package:mc_dragon/view/Shop_Screen/shop_screen.dart';
 
 class MoreScreen extends StatefulWidget {
   const MoreScreen({super.key});
@@ -102,7 +103,12 @@ class _MoreScreenState extends State<MoreScreen> {
                           color: Colors.white60.withOpacity(0.8),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const ShopScreen()));
+                          },
                           child: const Text(
                             "Shop now",
                             style: TextStyle(

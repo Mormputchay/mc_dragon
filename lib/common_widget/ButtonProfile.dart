@@ -7,10 +7,10 @@ class ButtonProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      minWidth: 150,
+      minWidth: double.maxFinite,
       height: 43,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      color: Colors.white60.withOpacity(0.5),
+      color: Colors.white12.withOpacity(0.5),
       onPressed: onPress,
       child: Text(
         title,

@@ -42,14 +42,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               RoundPhone(),
               const SizedBox(height: 30),
-              RoundButton(
-                  title: "Sign Up",
-                  onPress: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const OtpScreen()));
-                  })
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 35, vertical: 5),
+                child: RoundButton(
+                    title: "Sign Up",
+                    onPress: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const OtpScreen()));
+                    }),
+              )
             ],
           ),
         ),
