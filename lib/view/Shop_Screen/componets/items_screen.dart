@@ -110,7 +110,7 @@ class _ItemScreenState extends State<ItemScreen> {
             height: 10,
           ),
           SizedBox(
-            height: 100,
+            height: 95,
             child: ListView.builder(
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
@@ -124,11 +124,11 @@ class _ItemScreenState extends State<ItemScreen> {
                       Image.asset(
                         pObj["image"].toString(),
                         width: 130,
-                        height: 60,
+                        height: 50,
                         fit: BoxFit.contain,
                       ),
                       const SizedBox(
-                        height: 13,
+                        height: 10,
                       ),
                       Text(
                         pObj["name"].toString(),
@@ -136,7 +136,7 @@ class _ItemScreenState extends State<ItemScreen> {
                         textAlign: TextAlign.center,
                         overflow: TextOverflow.ellipsis,
                         style:
-                            const TextStyle(fontSize: 18, color: Colors.black),
+                            const TextStyle(fontSize: 16, color: Colors.black),
                       )
                     ],
                   );

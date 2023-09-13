@@ -106,7 +106,10 @@ class _HomeViewState extends State<HomeView> {
                 controller: storyController,
                 caption: const Text(
                   "Omotuo & Nkatekwan; You will love this meal if taken as supper.",
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
                   style: TextStyle(
+                    decorationThickness: 15,
                     color: Colors.white,
                     backgroundColor: Colors.black54,
                     fontSize: 17,
