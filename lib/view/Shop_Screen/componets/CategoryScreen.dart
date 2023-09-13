@@ -23,7 +23,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 itemCount: ButtonType.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    mainAxisExtent: 60,
+                    mainAxisExtent: 57,
                     mainAxisSpacing: 18,
                     crossAxisSpacing: 18),
                 itemBuilder: (context, index) {
@@ -32,13 +32,14 @@ class _CategoryScreenState extends State<CategoryScreen> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(23),
                       child: Container(
+                          width: double.maxFinite,
                           padding: const EdgeInsets.symmetric(horizontal: 10),
                           alignment: Alignment.center,
-                          color: Colors.grey.withOpacity(0.5),
+                          color: Colors.grey.shade300,
                           child: Text(
                             ButtonType[index],
                             style: const TextStyle(
-                                fontSize: 20,
+                                fontSize: 18,
                                 color: Colors.blueAccent,
                                 fontWeight: FontWeight.w400),
                           )),

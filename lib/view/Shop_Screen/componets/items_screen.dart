@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:mc_dragon/data/dataproduct.dart';
+import 'package:mc_dragon/view/Shop_Screen/componets/text_Product.dart';
 
 class ItemScreen extends StatefulWidget {
   const ItemScreen({super.key});
@@ -142,6 +144,124 @@ class _ItemScreenState extends State<ItemScreen> {
                   );
                 }),
           ),
+          const SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            child: Column(
+              children: [
+                TextProduct(title: "Product", onPress: () {}),
+                const SizedBox(height: 15),
+                GridView.builder(
+                    itemCount: dataProduct.length,
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 12,
+                            mainAxisSpacing: 12,
+                            mainAxisExtent: 250),
+                    itemBuilder: (context, index) {
+                      var pObj = dataProduct[index] as Map? ?? {};
+                      return Stack(
+                        alignment: Alignment.bottomRight,
+                        children: [
+                          Container(
+                            width: double.maxFinite,
+                            decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.grey.withOpacity(0.5),
+                                    spreadRadius: 2,
+                                    blurRadius: 5,
+                                    offset: const Offset(0, 3))
+                              ],
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.white,
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  margin: const EdgeInsets.only(top: 4),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15)),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Image.asset(
+                                      pObj["image"].toString(),
+                                      height: 150,
+                                      width: double.maxFinite,
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 10, top: 5, bottom: 5),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const SizedBox(
+                                        height: 3,
+                                      ),
+                                      Text(
+                                        pObj["name"].toString(),
+                                        textAlign: TextAlign.start,
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 1,
+                                        style: const TextStyle(
+                                            fontSize: 18, color: Colors.black),
+                                      ),
+                                      const SizedBox(height: 2),
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 10, vertical: 5),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              pObj["price"].toString(),
+                                              textAlign: TextAlign.start,
+                                              overflow: TextOverflow.ellipsis,
+                                              maxLines: 1,
+                                              style: const TextStyle(
+                                                  fontSize: 18,
+                                                  color: Colors.black),
+                                            ),
+                                            InkWell(
+                                              onTap: () {},
+                                              child: ClipOval(
+                                                child: Container(
+                                                  width: 33,
+                                                  height: 33,
+                                                  alignment: Alignment.center,
+                                                  color: Colors.blue.shade700,
+                                                  child: const Icon(
+                                                    Icons.add,
+                                                    size: 25,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      );
+                    })
+              ],
+            ),
+          )
         ],
       ),
     );

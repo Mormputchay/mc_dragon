@@ -10,14 +10,14 @@ class ButtonProfile extends StatelessWidget {
       minWidth: double.maxFinite,
       height: 43,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      color: Colors.white12.withOpacity(0.5),
+      color: Colors.grey.shade300,
       onPressed: onPress,
       child: Text(
         title,
-        style: const TextStyle(
+        style: TextStyle(
             fontSize: 14.5,
-            color: Colors.blueAccent,
-            fontWeight: FontWeight.w600),
+            color: Colors.blueAccent.shade700,
+            fontWeight: FontWeight.w400),
       ),
     );
   }

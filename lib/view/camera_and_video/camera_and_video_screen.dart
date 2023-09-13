@@ -17,6 +17,7 @@ class _CameraAndVideoScreenState extends State<CameraAndVideoScreen> {
   late List<CameraDescription> cameras;
   late CameraController cameraController;
   VideoPlayerController? videocontroller;
+  bool isRecoring = false;
   int direction = 0;
   File? video;
   @override
@@ -74,6 +75,7 @@ class _CameraAndVideoScreenState extends State<CameraAndVideoScreen> {
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      extendBody: true,
       body: SafeArea(
         child: Column(
           children: [
@@ -140,9 +142,7 @@ class _CameraAndVideoScreenState extends State<CameraAndVideoScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       InkWell(
-                        onTap: () {
-                          PickvideoFromGallery();
-                        },
+                        onTap: () => PickvideoFromGallery(),
                         child: Align(
                           alignment: Alignment.topLeft,
                           child: ClipOval(
@@ -156,17 +156,16 @@ class _CameraAndVideoScreenState extends State<CameraAndVideoScreen> {
                       ),
                       Align(
                         alignment: Alignment.topLeft,
-                        child: InkWell(
+                        child: GestureDetector(
                           onTap: () async {
                             setState(() async {
                               if (selectTab == 0) {
                                 if (!cameraController.value.isInitialized) {
-                                  return null;
+                                  return;
                                 }
                                 if (cameraController.value.isTakingPicture) {
-                                  return null;
+                                  return;
                                 }
-
                                 try {
                                   cameraController.setFlashMode(FlashMode.auto);
                                   XFile picture =
@@ -180,11 +179,9 @@ class _CameraAndVideoScreenState extends State<CameraAndVideoScreen> {
                                 } on CameraException catch (e) {
                                   debugPrint(
                                       "Error occured while taking picture : $e");
-                                  return null;
+                                  return;
                                 }
-                              } else {
-                                print("Video");
-                              }
+                              } else {}
                             });
                           },
                           child: Container(
