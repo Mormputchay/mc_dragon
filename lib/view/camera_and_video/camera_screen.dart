@@ -18,6 +18,7 @@ class _ImagePreviewState extends State<ImagePreview> {
     return Scaffold(
       appBar: BuilderAppBar(
         title: "Camera",
+        color: Colors.black,
         elevation: 0,
         leading: IconButton(
             onPressed: () {

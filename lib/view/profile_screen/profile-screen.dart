@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mc_dragon/common_widget/ButtonProfile.dart';
+import 'package:mc_dragon/view/Add_Friend/add_friend.dart';
 import 'package:mc_dragon/view/edit_profile/edit_profile.dart';
 import 'package:mc_dragon/view/profile_screen/components/meun_item.dart';
 
 import '../../common_widget/text_following.dart';
+import '../Notification/notification_screen.dart';
 import 'components/profile_image.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -44,7 +46,13 @@ class _ProfileScreenState extends State<ProfileScreen>
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const NotificationScreen()));
+                        },
                         icon: const Icon(
                           Icons.notifications_active_outlined,
                           size: 30,
@@ -86,8 +94,14 @@ class _ProfileScreenState extends State<ProfileScreen>
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
-                        child:
-                            ButtonProfile(title: "Add Friend", onPress: () {})),
+                        child: ButtonProfile(
+                            title: "Add Friend",
+                            onPress: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const AddFriend()));
+                            })),
                     const SizedBox(width: 25),
                     Expanded(
                       child: ButtonProfile(

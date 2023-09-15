@@ -14,14 +14,15 @@ class _MoreScreenState extends State<MoreScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        appBar: const BuilderAppBar(
+        appBar: BuilderAppBar(
           title: "Mores",
+          color: Colors.blueAccent.shade700,
           elevation: 1,
           actions: [
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Icon(Icons.notifications_active_outlined,
-                  size: 30, color: Colors.blueAccent),
+                  size: 30, color: Colors.blueAccent.shade700),
             )
           ],
         ),
