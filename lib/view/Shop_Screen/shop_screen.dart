@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mc_dragon/view/Notification/notification_screen.dart';
 import 'package:mc_dragon/view/Shop_Screen/componets/CategoryScreen.dart';
 import 'package:mc_dragon/view/Shop_Screen/componets/items_screen.dart';
 
@@ -24,18 +25,27 @@ class _ShopScreenState extends State<ShopScreen> {
           "assets/image/mc1.png",
         ),
         title: 'Shop',
-        actions: const [
+        centerTitle: true,
+        actions: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Row(
               children: [
-                Icon(
-                  Icons.notifications_active_outlined,
-                  size: 30,
-                  color: Colors.blueAccent,
+                IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const NotificationScreen()));
+                  },
+                  icon: const Icon(
+                    Icons.notifications_active_outlined,
+                    size: 30,
+                    color: Colors.blueAccent,
+                  ),
                 ),
-                SizedBox(width: 10),
-                Icon(
+                const SizedBox(width: 10),
+                const Icon(
                   Icons.shopping_cart_outlined,
                   size: 30,
                   color: Colors.blueAccent,

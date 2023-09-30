@@ -12,6 +12,7 @@ class MenuButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: onPress,
       child: Container(
         color: Colors.white,
         child: Column(

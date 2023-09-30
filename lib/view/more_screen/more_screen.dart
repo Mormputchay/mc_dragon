@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mc_dragon/common_widget/BuilderAppBar.dart';
 import 'package:mc_dragon/common_widget/MenuButton.dart';
 import 'package:mc_dragon/view/Shop_Screen/shop_screen.dart';
+import 'package:mc_dragon/view/new_listing/New_listing.dart';
+
+import '../Notification/notification_screen.dart';
 
 class MoreScreen extends StatefulWidget {
   const MoreScreen({super.key});
@@ -16,13 +19,25 @@ class _MoreScreenState extends State<MoreScreen> {
         backgroundColor: Colors.white,
         appBar: BuilderAppBar(
           title: "Mores",
+          centerTitle: true,
           color: Colors.blueAccent.shade700,
           elevation: 1,
           actions: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Icon(Icons.notifications_active_outlined,
-                  size: 30, color: Colors.blueAccent.shade700),
+              child: IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const NotificationScreen()));
+                },
+                icon: Icon(
+                  Icons.notifications_active_outlined,
+                  size: 30,
+                  color: Colors.blueAccent.shade700,
+                ),
+              ),
             )
           ],
         ),
@@ -46,7 +61,13 @@ class _MoreScreenState extends State<MoreScreen> {
                           MenuButton(
                             title: "Product",
                             icons: "assets/image/product.png",
-                            onPress: () {},
+                            onPress: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const NewListingScreen()));
+                            },
                           ),
                           MenuButton(
                             title: "Wallet",

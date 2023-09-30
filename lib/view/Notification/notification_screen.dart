@@ -28,6 +28,7 @@ class _NotificationScreenState extends State<NotificationScreen>
       backgroundColor: Colors.white,
       appBar: BuilderAppBar(
         title: "Notification",
+        centerTitle: true,
         elevation: 0,
         leading: IconButton(
           onPressed: () {

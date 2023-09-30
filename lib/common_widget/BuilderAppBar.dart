@@ -5,6 +5,7 @@ class BuilderAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? leading;
   final List<Widget>? actions;
   final double? elevation;
+  final bool? centerTitle;
   final Color? color;
   const BuilderAppBar({
     super.key,
@@ -13,6 +14,7 @@ class BuilderAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.actions,
     this.elevation,
     this.color,
+    this.centerTitle,
   });
 
   @override
@@ -20,12 +22,12 @@ class BuilderAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: Colors.white,
       elevation: elevation,
-      centerTitle: true,
+      centerTitle: centerTitle,
       leading: leading,
       title: Text(
         title!,
-        style: TextStyle(
-            color: color, fontSize: 22, fontWeight: FontWeight.normal),
+        style:
+            TextStyle(color: color, fontSize: 22, fontWeight: FontWeight.w500),
       ),
       actions: actions,
     );

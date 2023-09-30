@@ -17,6 +17,7 @@ class _AddFriendState extends State<AddFriend> {
       backgroundColor: Colors.white,
       appBar: BuilderAppBar(
         title: "Add Friend",
+        centerTitle: true,
         color: Colors.black,
         elevation: 0,
         leading: IconButton(
@@ -73,15 +74,19 @@ class _AddFriendState extends State<AddFriend> {
                                   ),
                                   const SizedBox(width: 10),
                                   Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceEvenly,
                                     children: [
                                       Column(
+                                        mainAxisSize: MainAxisSize.min,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
                                             pObj["name"].toString(),
+                                            maxLines: 2,
                                             style: const TextStyle(
                                                 fontSize: 18,
                                                 color: Colors.black),
